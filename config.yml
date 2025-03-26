@@ -1,0 +1,58 @@
+# Path to Tesseract OCR executable
+pytesseract_path: "C:\\Program Files\\Tesseract-OCR\\tesseract.exe"
+
+# Time thresholds (in minutes) to determine stale roles
+threshold_minutes: 30  # Minimum threshold to consider a role stale
+threshold_max: 60      # Maximum threshold to take action
+
+# Scroll limit
+scroll_limit: 5
+
+# Approval
+approval_limit: 5
+
+# Button positions on screen (X, Y)
+dismiss_button: [870, 870]             # "Dismiss" button position
+confirm_dismiss_button: [880, 580]     # "Confirm" button position
+exit_button: [1175, 160]               # "Exit" button position (to close dialogs)
+back_button: [720, 975]                # "Back" button position (to return to main menu)
+capitol_button: [1085, 355]            # "Capitol" button position (to re-enter UI)
+approve_button: [1080, 275]            # "Approve" button position
+list_button: [1160, 870]               # "List" button position
+
+# Scroll behavior (Start & End positions)
+scroll_start: [945, 335]  # Scroll start position
+scroll_end: [945, 800]    # Scroll end position
+
+# Default value for Conquerors Buff mode (can be overridden via CLI)
+conquerorsBuff: false
+
+# Position card coordinates for different UI modes
+coordinates:
+  default:  # Normal mode (without Conquerors Buff)
+    - [950, 510]    # Strategy
+    - [1130, 510]   # Security 
+    - [780, 715]    # Development
+    - [960, 715]    # Science
+    - [1120, 715]   # Interior
+  conquerors:  # Enhanced UI mode with Conquerors Buff enabled (Not completed to do not use)
+    - [0, 0]    # Military
+    - [0, 0]    # Administrative
+    - [0, 0]    # Strategy
+    - [0, 0]    # Security
+    - [0, 0]    # Development
+    - [0, 0]    # Science
+    - [0, 0]    # Interior
+
+# Stale role detection zones (Left, Top, Width, Height, Role Name, Click X, Click Y)
+staleRoleCoordinates:
+  default:
+    - [925, 575, 77, 25, "Secretary of Strategy", 950, 510]
+    - [1095, 575, 77, 25, "Secretary of Security", 1130, 510]
+  conquerors: #  (Not completed to do not use)
+    - [2083, 485, 77, 24, "Military Commander", 2109, 441]
+    - [2293, 485, 77, 24, "Administrative Commander", 2316, 425]
+    - [2184, 718, 106, 27, "Secretary of Strategy", 2212, 677]
+    - [2366, 718, 106, 27, "Secretary of Security", 2396, 636]
+    - [2002, 951, 106, 27, "Secretary of Development", 2053, 973]
+    - [2184, 951, 106, 27, "Secretary of Science", 2209, 850]
