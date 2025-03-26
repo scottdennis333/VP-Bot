@@ -41,5 +41,6 @@ The other values in `config.yml` can be also be updated to your requirements if 
 ## Notes
 - The `threshold_max` value in `config.yml` is used as a preventive measure incase the screenshot or OCR are not accurate. Once the bot has been running and you can see it is working correctly this number can be increased to your desired amount.
 - The bot will save the screenshot every time it looks to remove stale roles. This can be used to make sure your height width and location of the time is accurate during setup.
+- There is an `example.jpg` file, the screenshots should look similar to this. It should only be taking a screenshot of the time!
 - The bot will only dismiss for the roles defined in `staleRoleCoordinates`. You can add or remove roles based on your requirements.
 - The conquerors buff mode has not been tested
