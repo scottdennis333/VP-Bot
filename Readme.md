@@ -4,8 +4,8 @@ VP-Bot is an automated script designed to manage roles and applicants in a virtu
 
 ## Features
 
-- **Automated Role Management**: Detects stale roles and dismisses them based on configurable thresholds.
 - **Applicant Approval**: Automatically approves applicants from a list.
+- **Automated Role Management**: Detects stale roles and dismisses them based on configurable thresholds.
 - **Conquerors Buff Mode**: Enhanced mode with additional UI configurations.
 - **Configurable Settings**: All settings are customizable via a YAML configuration file.
 
