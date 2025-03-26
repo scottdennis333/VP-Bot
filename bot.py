@@ -32,6 +32,7 @@ def time_to_minutes(time_str):
     hours, minutes, _ = map(int, time_str.split(":"))
     return hours * 60 + minutes
 
+# Function to sanitize OCR text
 def text_sanitization(time_str):
     if not time_str:
         return ""
@@ -42,6 +43,7 @@ def text_sanitization(time_str):
         parts[2] = parts[2][:2]  # Remove extra trailing digit
     return ":".join(parts)
 
+# Function to remove stale roles
 def remove_stale_roles(left, top, width, height, message, x, y):
     print(message)
     region = (left, top, width, height)
@@ -57,13 +59,14 @@ def remove_stale_roles(left, top, width, height, message, x, y):
     # Define OCR configuration options
     custom_config = r'--oem 3 --psm 7 -c tessedit_char_whitelist=0123456789:'
 
-    # Get the raw test
+    # Get the raw text
     raw_text = pytesseract.image_to_string(screenshot_rgb, config=custom_config)
     print(raw_text)
-    
-    # Extract text with custom configuration
+
+    # Extract text
     text = text_sanitization(raw_text)
     print(text)
+
     # Use regular expression to find time strings in HH:mm:ss format
     pattern = r'\b\d{2}:\d{2}:\d{2}\b'
     matches = re.findall(pattern, text)
@@ -81,14 +84,16 @@ def remove_stale_roles(left, top, width, height, message, x, y):
             pyautogui.click(*config["exit_button"])
             time.sleep(0.6)
         else:
-            print(f"{message} is less than {threshold_minutes} minutes.")
+            print(f"{message} is less than {threshold_minutes} minutes or greater than {threshold_max} minutes.")
 
+# Function to refresh positions
 def refresh_positions():
     pyautogui.click(*config["back_button"])
     time.sleep(1.3)
     pyautogui.click(*config["capitol_button"])
     time.sleep(1)
 
+# Function to approve applicant list
 def approve_applicant_list(x, y):
     pyautogui.click(x, y)
     time.sleep(0.65)
@@ -113,9 +118,10 @@ def approve_applicant_list(x, y):
 
     return True
 
+# Main function
 def main():
     print(f"Starting script... Conquerors Buff mode: {'Enabled' if conquerorsBuff else 'Disabled'}")
-    
+
     time.sleep(5)  # Giving time to get screen ready
     i = 9
 
@@ -123,13 +129,13 @@ def main():
         i += 1
         for x, y in coordinates:
             approve_applicant_list(x, y)
-        
+
         if i % 5 == 0:
             refresh_positions()
             for left, top, width, height, message, x, y in staleRoleCoordinates:
                 remove_stale_roles(left, top, width, height, message, x, y)
-        
-        time.sleep(4)
+
+        time.sleep(4) # Giving time to stop the bot
 
 if __name__ == "__main__":
     main()
