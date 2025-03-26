@@ -1,5 +1,5 @@
 *.jpg
-*.jpeg
+img_*.jpeg
 *.png
 
 # Byte-compiled / optimized / DLL files
