@@ -5,7 +5,7 @@ conquerorsBuff: false
 pytesseract_path: "C:\\Program Files\\Tesseract-OCR\\tesseract.exe"
 
 # Time thresholds (in minutes) to determine stale roles
-threshold_minutes: 30  # Minimum threshold to consider a role stale
+threshold_minutes: 15  # Minimum threshold to consider a role stale
 threshold_max: 60      # Maximum threshold to take action
 
 # Scroll limit
@@ -22,6 +22,8 @@ back_button: [720, 975]                # "Back" button position (to return to ma
 capitol_button: [1085, 355]            # "Capitol" button position (to re-enter UI)
 approve_button: [1080, 275]            # "Approve" button position
 list_button: [1160, 870]               # "List" button position
+vp_button: [770, 510]                  # "Vice President" button position
+vp_apply_button: [950, 875]           # "Apply" button position for Vice President	
 
 # Scroll behavior (Start & End positions)
 scroll_start: [945, 335]  # Scroll start position
@@ -48,9 +50,9 @@ coordinates:
 staleRoleCoordinates:
   default:
     - [925, 575, 80, 25, "Secretary of Strategy", 950, 510]
-    - [1095, 575, 80, 25, "Secretary of Security", 1130, 510]
-    - [745, 780, 80, 25, "Secretary of Development", 780, 715]
-    - [925, 780, 80, 25, "Secretary of Science", 960, 715]
+    - [1090, 575, 80, 25, "Secretary of Security", 1130, 510]
+    # - [745, 780, 80, 25, "Secretary of Development", 780, 715] Remove comment to enable
+    # - [925, 780, 80, 25, "Secretary of Science", 960, 715] Remove comment to enable
   conquerors:
     - [0, 0, 80, 25, "Military Commander", 0, 0]
     - [0, 0, 80, 25, "Administrative Commander", 0, 0]
@@ -58,3 +60,23 @@ staleRoleCoordinates:
     - [0, 0, 80, 25, "Secretary of Security", 0, 0]
     - [0, 0, 80, 25, "Secretary of Development", 0, 0]
     - [0, 0, 80, 25, "Secretary of Science", 0, 0]
+
+
+vpMode:
+  coordinates:
+    default:  # Normal mode (without Conquerors Buff)
+      - [770, 510]    # Vice President	
+      - [950, 510]    # Strategy
+      - [1130, 510]   # Security
+      - [780, 715]    # Development
+      - [960, 715]    # Science
+      - [1120, 715]   # Interior
+    conquerors:  # Enhanced UI mode with Conquerors Buff enabled
+      - [0, 0]    # Vice President
+      - [0, 0]    # Military
+      - [0, 0]    # Administrative
+      - [0, 0]    # Strategy
+      - [0, 0]    # Security
+      - [0, 0]    # Development
+      - [0, 0]    # Science
+      - [0, 0]    # Interior

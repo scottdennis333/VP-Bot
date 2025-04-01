@@ -20,6 +20,9 @@ VP-Bot is an automated script designed to manage roles and applicants in a virtu
 Install dependencies:
     `pip install -r requirements.txt`
 
+Config.yml:
+    A config.example.yml is provided. You will want to make a copy of this file and name it `config.yml`.
+
 ## Usage
 Run the bot with the following command:
     `python3 bot.py`
@@ -29,18 +32,27 @@ Run the bot with the following command:
 Example:
     `python3 bot.py --c`
 
+--apply_time: The time the bot will apply for VP. Must use 24 hour time and is based on the computers timezone. If ommitted it will assume it is already the VP.
+Example:
+    `python3 bot.py --apply_time 15:00`
+
+--switch_time: The time the bot will start accepting applications for the VP role. Must use 24 hour time and is based on the computers timezone
+Example:
+    `python3 bot.py --switch_time 17:00`
+
 ## Configuration
-The bot's behavior is controlled via the config.yml file. Before running the bot you will need to update the config.yml file based on your screens resolution and location/window size of the last war game.
+The bot's behavior is controlled via the `config.yml` file. Before running the bot you will need to update the this file based on your screens resolution and location/window size of the last war game.
 
 The `pytesseract_path` is currently the default path but you may need to update it based on your machine
 
-There is a `location.py` script that will print your mouse location every 3 seconds. You can use this to find the x,y coordinates for your screen and update the config.yml with the new coordinate.
+There is a `location.py` script that will print your mouse location every 3 seconds. You can use this to find the x,y coordinates for your screen and update the `config.yml` with your coordinate.
 
-The other values in `config.yml` can be also be updated to your requirements if necessary.
+The other values in `config.yml` can also be updated based on your requirements if necessary.
 
 ## Notes
 - The `threshold_max` value in `config.yml` is used as a preventive measure incase the screenshot or OCR are not accurate. Once the bot has been running and you can see it is working correctly this number can be increased to your desired amount.
 - The bot will save the screenshot every time it looks to remove stale roles. This can be used to make sure your height width and location of the time is accurate during setup.
 - There is an `example.jpg` file, the screenshots should look similar to this. It should only be taking a screenshot of the time!
 - The bot will only dismiss for the roles defined in `staleRoleCoordinates`. You can add or remove roles based on your requirements.
+- To stop the bot at any moment you can move the mouse to the corner of the screen
 - The conquerors buff mode has not been tested
