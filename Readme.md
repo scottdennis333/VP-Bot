@@ -1,6 +1,6 @@
 # VP-Bot
 
-VP-Bot is an automated script designed to manage roles and applicants in a virtual environment. It uses OCR (Optical Character Recognition) to detect stale roles and performs automated actions such as approving applicants and dismissing stale roles.
+VP-Bot is an automated script designed to manage roles and applicants for Last War. It uses OCR (Optical Character Recognition) to detect stale roles and performs automated actions such as approving applicants and dismissing stale roles.
 
 ## Features
 
@@ -43,13 +43,10 @@ Run the bot with the following command:
         python3 bot.py --switch_time 17:00
 
 ## Configuration
-The bot's behavior is controlled via the `config.yml` file. Before running the bot you will need to update the this file based on your screens resolution and location/window size of the last war game.
-
-The `pytesseract_path` is currently the default path but you may need to update it based on your machine
-
-There is a `location.py` script that will print your mouse location every 3 seconds. You can use this to find the x,y coordinates for your screen and update the `config.yml` with your coordinate.
-
-The other values in `config.yml` can also be updated based on your requirements if necessary.
+- The bot's behavior is controlled via the `config.yml` file. Before running the bot you will need to update the this file based on your screens resolution and location/window size of the last war game.
+- There is a `location.py` script that will print your mouse location every 3 seconds. You can use this to find the x,y coordinates for your screen and update the `config.yml` with your coordinate.
+- The `pytesseract_path` is currently the default path but you may need to update it based on your machine
+- The other values in `config.yml` can also be updated based on your requirements if necessary.
 
 ## Notes
 - The `threshold_max` value in `config.yml` is used as a preventive measure incase the screenshot or OCR are not accurate. Once the bot has been running and you can see it is working correctly this number can be increased to your desired amount.
